@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../styles/app_styles.dart';
 import '../styles/colors_app.dart';
 
-class ThemeConfi {
-  ThemeConfi._();
+class ThemeConfig {
+  ThemeConfig._();
   static final _defaultInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.circular((7)),
       borderSide: BorderSide(color: Colors.grey[400]!));
