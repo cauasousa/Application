@@ -1,7 +1,10 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
+<<<<<<< HEAD
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
+=======
+>>>>>>> 1e3e6e5dc889e13766ea4142fdf4b5f305dcba4b
 import 'package:dw9_delivery_app/app/pages/home/home_state.dart';
 import 'package:dw9_delivery_app/app/repositories/products/products_repository.dart';
 
@@ -26,6 +29,7 @@ class HomeController extends Cubit<HomeState> {
       );
     }
   }
+<<<<<<< HEAD
 
   void addOrUpdateBag(OrderProductDto orderProduct) {
     final shoppingBag = [...state.shoppingBag];
@@ -46,4 +50,6 @@ class HomeController extends Cubit<HomeState> {
     
     emit(state.copyWith(shoppingBag: shoppingBag));
   }
+=======
+>>>>>>> 1e3e6e5dc889e13766ea4142fdf4b5f305dcba4b
 }
