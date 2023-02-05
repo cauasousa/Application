@@ -5,6 +5,7 @@ import 'package:dw9_delivery_app/app/pages/home/widgets/delivery_poduct_tile.dar
 import 'package:dw9_delivery_app/app/pages/home/widgets/shopping_bag_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../core/ui/base_state/base_state.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,9 +16,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends BaseState<HomePage, HomeController> {
-
   @override
   void onReady() {
+    
     controller.loadProducts();
   }
 
@@ -44,25 +45,23 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
         builder: (context, state) {
           return Column(
             children: [
-              
               Expanded(
                 child: ListView.builder(
                   itemCount: state.products.length,
                   itemBuilder: (context, index) {
                     final product = state.products[index];
-                    final orders = state.shoppingBag.where((order) => order.product == product);
+                    final orders = state.shoppingBag
+                        .where((order) => order.product == product);
                     return DeliveryPoductTile(
                       product: product,
                       orderProduct: orders.isNotEmpty ? orders.first : null,
-                      );
+                    );
                   },
                 ),
               ),
-
               Visibility(
-                visible: state.shoppingBag.isNotEmpty,
-                child: ShoppingBagWidget(bag: state.shoppingBag)),
-
+                  visible: state.shoppingBag.isNotEmpty,
+                  child: ShoppingBagWidget(bag: state.shoppingBag)),
             ],
           );
         },
