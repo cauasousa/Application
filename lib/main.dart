@@ -9,6 +9,5 @@ import 'app/core/config/env/env.dart';
 Future<void> main() async {
   HttpOverrides.global = MyHttpOverrides();
   await Env.i.load();
-
   runApp( Dw9DeliveryApp());
 }
